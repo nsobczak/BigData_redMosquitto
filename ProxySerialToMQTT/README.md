@@ -1,4 +1,4 @@
 # Proxy Serial to MQTT
 
-Dossier contenant l'application qui relaye les informations reçues sur le port série vers Mosquitto. <br/>
-Application développée en java.
+Proxy Serial to MQTT is an application which gives information received on the serial port to Mosquitto. <br/>
+Application developed in java.
