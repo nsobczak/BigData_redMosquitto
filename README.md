@@ -1,7 +1,6 @@
 # BigData_redMosquitto
 BigData 
 
-An Arduino push somes values.
-A java program get them and send to mosquitto.
+An Arduino pushes values.
+A java application gets and sends them to mosquitto.
 
-It is a little project.
