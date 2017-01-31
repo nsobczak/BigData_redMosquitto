@@ -24,14 +24,12 @@ int delayBetweenValue;
 
 //_________________________________________________________________
 
-int changeDelayBetweenValue(int delay) {
-  if (digitalRead(BUTTON1)==LOW){
-    delay += 10;
-  }
-  if (digitalRead(BUTTON2)==LOW){
-    delay -= 10;
-  }
-  return delay;
+void clearLCD() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("value : ");
+  lcd.setCursor(0, 1);
+  lcd.print("delay : ");
 }
 
 
@@ -40,6 +38,7 @@ void readPotentiometerValue(int delayBetweenValue){
   value = reading*401/1024 ;  //analogRead(PIN)*RANGE/1024.0
   Serial.println(value);
 
+  clearLCD();
   lcd.setCursor(8, 0);
   lcd.print(value);
   lcd.setCursor(8, 1);
@@ -49,15 +48,22 @@ void readPotentiometerValue(int delayBetweenValue){
 }
 
 
+int changeDelayBetweenValue(int delay) {
+  if (digitalRead(BUTTON1)==LOW){
+    delay += 50;
+  }
+  if ((digitalRead(BUTTON2)==LOW) && (delay > 50)){
+    delay -= 50;
+  }
+  return delay;
+}
+
+
 void setup() {
   lcd.begin(16, 2);
   lcd.clear();
   pinMode(BUTTON1, INPUT);
   pinMode(BUTTON2, INPUT);
-  lcd.setCursor(0, 0);
-  lcd.print("value : ");
-  lcd.setCursor(0, 1);
-  lcd.print("delay : ");
 
   delayBetweenValue = 500;
   pinMode(POTENTIOMETER_PIN, INPUT);
