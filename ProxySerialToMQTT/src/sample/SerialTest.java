@@ -19,9 +19,10 @@ public class SerialTest implements SerialPortEventListener {
             "/dev/tty.usbserial-A9007UX1", // Mac OS X
             "/dev/ttyACM0", // Raspberry Pi
             "/dev/ttyUSB0", // Linux
-            //"COM1","COM2",
-            "COM3"
-            //,"COM4","COM5","COM6","COM7","COM8" // Windows
+            "COM1","COM2",
+            "COM3","COM4",
+            "COM5","COM6",
+            "COM7","COM8" // Windows
     };
     /**
      * A BufferedReader which will be fed by a InputStreamReader
