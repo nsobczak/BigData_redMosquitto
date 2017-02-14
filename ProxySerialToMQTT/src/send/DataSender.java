@@ -23,10 +23,10 @@ public class DataSender
 
     public static MqttClient SendValues(String values)
     {
-        String topic = "MQTT Examples";
-        String content = "Message from MqttPublishSample. Sended values : " + values;
+        String topic = "ISEN/carotte";
+        String content = values;
         int qos = 2;
-        String broker = "tcp://iot.eclipse.org:1883";
+        String broker = "tcp://192.168.1.5:1883";
         String clientId = "JavaSample";
         MemoryPersistence persistence = new MemoryPersistence();
 
@@ -46,7 +46,7 @@ public class DataSender
             sampleClient.publish(topic, message);
             System.out.println("Message published");
             return sampleClient;
-        //  stopSender(sampleClient);
+            //  stopSender(sampleClient);
         } catch (MqttException me)
         {
             System.out.println("reason " + me.getReasonCode());

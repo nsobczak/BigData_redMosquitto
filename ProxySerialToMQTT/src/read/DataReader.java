@@ -133,6 +133,7 @@ public class DataReader implements SerialPortEventListener
 
     /**
      * Handle an event on the serial port. Read the data and print it.
+     *
      * @param oEvent
      */
     public synchronized void serialEvent(SerialPortEvent oEvent)
@@ -156,7 +157,7 @@ public class DataReader implements SerialPortEventListener
     public static void main(String[] args) throws Exception
     {
 
-        MqttClient sampleClient = DataSender.SendValues("Launch Test");
+        //MqttClient sampleClient = DataSender.SendValues("Launch Test");  //faut commenter aussi le datasender dans serialEvent
         DataReader main = new DataReader();
         main.initialize();
         Thread thread = new Thread()
@@ -173,7 +174,9 @@ public class DataReader implements SerialPortEventListener
                 }
             }
         };
+
         thread.start();
+
         System.out.println("Started");
         //DataSender.stopSender(sampleClient);
     }
