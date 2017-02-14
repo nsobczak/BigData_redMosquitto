@@ -35,7 +35,7 @@ void clearLCD() {
 
 void readPotentiometerValue(int delayBetweenValue){
   reading = analogRead(POTENTIOMETER_PIN);
-  value = reading*401/1024 ;  //analogRead(PIN)*RANGE/1024.0
+  value = reading*700/1024 ;  //analogRead(PIN)*RANGE/1024.0
   Serial.println(value);
 
   clearLCD();
